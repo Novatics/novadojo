@@ -9,16 +9,26 @@ fn main() {
 
 fn evaluate(secret: Vec<String>, guess: Vec<String>) -> Vec<u8> {
   //iterar
-  let mut count_match: u8;
-  for x in secret {
-    if (secret.contains(&x) ) {
+  let mut count_match: u8 = 0;
+  let mut count_error: u8 = 0;
+
+  for (i, x) in guess.iter().enumerate() {
+    // count_match valor no lugar certo 
+    if secret[i] == *x {
       count_match += 1;
     }
-  }
-  // let mut response: bool = secret.contains(&guess);
-  println!("Secret: {:?}", secret);
-  println!("Guess: {:?}", guess);
-  println!("Response: {:?}", response);
+    else {
+      if secret.contains(&x) {
+        count_error += 1;
+      }
+    }
 
-  return vec![0, 1];
+    // if (secret.contains(&x)) {
+    //   count_match += 1;
+    // }
+  }
+  println!("Secret: {:?}", secret);
+  // println!("Guess: {:?}", guess);
+
+  return vec![count_match, count_error];
 }

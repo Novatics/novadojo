@@ -23,3 +23,11 @@ fn it_work3() {
     let result = evaluate(v1, v2);
     assert_eq!(result, [0, 1]);
 }
+
+#[test]
+fn check_with_two() {
+    let v1 = vec!["blue".to_string(),"blue".to_string()];
+    let v2 =  vec!["blue".to_string()];
+    let result = evaluate(v1, v2);
+    assert_eq!(result, [2, 0]);
+}
