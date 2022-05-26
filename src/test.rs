@@ -7,6 +7,9 @@ use super::*;
 // }
 
 fn it_works() {
-    let result = evaluate(['azul', 'verde'], ['vermelho', 'verde']);
+    let array1 = vec!["azul", "verde"];
+    let array2 = vec!["vermelho", "verde"];
+
+    let result = evaluate(array1, array2);
     assert_eq!(result, [1, 0]);
 }
